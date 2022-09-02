@@ -6,6 +6,7 @@ import os
 import argparse
 import base64
 import json
+from pathvalidate import ValidationError, validate_filename
 
 
 class PlexDownloader:
@@ -223,15 +224,16 @@ class PlexDownloader:
         }
 
         for content in contents:
-            if not os.path.exists(content['folder']):
+            folder=sanitize_filepath(content['folder']
+            if not os.path.exists(folder):
 
-                print("Directories don't exists, creating folders")
-                os.makedirs(content['folder'].replace(":", " -"))
+                print("Directory %s exists, creating folders", folder)
+                os.makedirs(folder)
 
-            file_name = os.path.join(
-                    content['folder'].replace(":", " -"), content['filename'].replace("/", "-"))
-            if os.path.exists(file_name):
-                print("File already exists, skipping")
+            file_name = sanitize_filepath(os.path.join(
+                    folder, sanitize_filename(content['filename']))
+            if os.path.exists(file_name)):
+                print("File %s already exists, skipping", file_name)
                 continue
 
             response = requests.get(
