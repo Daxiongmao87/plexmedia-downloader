@@ -229,6 +229,9 @@ class PlexDownloader:
 
             file_name = os.path.join(
                 content['folder'], content['filename'].replace("/", "-"))
+            if os.path.exists(file_name):
+                print("File already exists, skipping")
+                continue
 
             response = requests.get(
                 content['url'], stream=True, headers=headers)
