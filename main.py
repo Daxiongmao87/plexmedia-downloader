@@ -6,7 +6,7 @@ import os
 import argparse
 import base64
 import json
-from pathvalidate import ValidationError, validate_filename
+from pathvalidate import ValidationError, validate_filename, validate_filepath
 
 
 class PlexDownloader:
