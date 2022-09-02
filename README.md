@@ -1,3 +1,8 @@
+# This Repo
+
+This repo includes a bash script and dockerfile to turn this into a library downloader
+
+
 # Plex Media Server Offline Downloader
 
 PlexMedia-Downloader is a python script that you pass it your username, password, url to the media you have access to and it will download it to your local machine.
