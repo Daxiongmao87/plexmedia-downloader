@@ -224,11 +224,12 @@ class PlexDownloader:
 
         for content in contents:
             if not os.path.exists(content['folder']):
+
                 print("Directories don't exists, creating folders")
                 os.makedirs(content['folder'].replace(":", " -"))
 
             file_name = os.path.join(
-                content['folder'], content['filename'].replace("/", "-"))
+                    content['folder'].replace(":", " -"), content['filename'].replace("/", "-"))
             if os.path.exists(file_name):
                 print("File already exists, skipping")
                 continue
