@@ -232,7 +232,7 @@ class PlexDownloader:
 
             file_name = sanitize_filepath(os.path.join(
                     folder, sanitize_filename(content['filename'])))
-            if os.path.exists(file_name)):
+            if os.path.exists(file_name):
                 print("File %s already exists, skipping" % file_name)
                 continue
 
