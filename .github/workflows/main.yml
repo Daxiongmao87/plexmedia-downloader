@@ -22,5 +22,5 @@ jobs:
           # You should create a personal access token and store it in your repository
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           repo: plex-library-synchronizer
-          owner: Patrick Richardson
+          owner: Daxiongmao87
           event_type: build-image
