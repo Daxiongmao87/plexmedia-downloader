@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Docker Build
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    name: Dispatch to `plex-library-synchronizer`
+    runs-on: ubuntu-latest
+    steps:
+      - name: Emit repository_dispatch
+        uses: mvasigh/dispatch-action@main
+        with:
+          # You should create a personal access token and store it in your repository
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          repo: daxiongmao87/plex-library-synchronizer
+          owner: Patrick Richardson
+          event_type: build-image
