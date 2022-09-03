@@ -9,6 +9,7 @@ on:
     branches: [ "master" ]
     paths:
     - 'main.py'
+    - 'requirements.txt'
   workflow_dispatch:
   
 jobs:
